@@ -1,3 +1,7 @@
+<?php
+include 'db.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +13,6 @@
 <body>
     <h1>CRUD Operations</h1>
     
-    <!-- Form to add a new student -->
     <h2>Add New Student</h2>
     <form action="add_student.php" method="POST">
         <input type="text" name="fname" placeholder="First Name" required>
@@ -20,7 +23,6 @@
         <button type="submit">Add Student</button>
     </form>
 
-    <!-- Display students -->
     <h2>Students List</h2>
     <table>
         <thead>
@@ -36,7 +38,6 @@
         </thead>
         <tbody>
             <?php
-            include 'db.php';
             $result = $conn->query("SELECT * FROM students");
             while($row = $result->fetch_assoc()) {
                 echo "<tr>
